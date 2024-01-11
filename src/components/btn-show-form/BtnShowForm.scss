@@ -1,0 +1,27 @@
+.btnShow {
+  background: inherit;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-left: 24px;
+  margin-bottom: 10px;
+
+  &__image {
+    height: 25px;
+    width: 25px;
+    background: inherit;
+  }
+
+  &__imageRotate {
+    height: 25px;
+    width: 25px;
+    background: inherit;
+    transform: rotate(45deg);
+  }
+
+  &__text {
+    color: white;
+    font-size: 14px;
+  }
+}

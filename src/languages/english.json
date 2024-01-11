@@ -1,0 +1,17 @@
+{
+    "words": {
+        "Confirm": "Confirm",
+        "Remove": "Remove",
+        "Date" : "Date",
+        "Update": "Update",
+        "Completed": "Completed",
+        "Title": "Title",
+        "TitlePH": "Enter title task",
+        "Description": "Description",
+        "DescriptionPH": "Enter description",
+        "Sort": "Sorting by",
+        "Active": "Active",
+        "Add task": "Add task",
+        "Hide form": "Hide form"
+    }
+}
