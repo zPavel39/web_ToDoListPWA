@@ -82,10 +82,11 @@ const ListTask = observer(({...props}: props) => {
                 <>
                   <div className="tasks__leftBlock">
                     <input className="tasks__leftBlock_input" value={title}></input>
-                    <textarea className="tasks__leftBlock_inputDescription" maxLength={200} value={description}></textarea>
+                    <textarea className="tasks__leftBlock_inputDescription" maxLength={200}
+                              value={description}></textarea>
                   </div>
                   <div className="tasks__rightBlock">
-                <input type={"date"} className="tasks__rightBlock_inputDate" value={date} />
+                    <input type={"date"} className="tasks__rightBlock_inputDate" value={date}/>
                     <div className="tasks__blockBtn">
                       <button
                         className="tasks__blockBtn_btn"

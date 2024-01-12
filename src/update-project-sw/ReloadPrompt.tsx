@@ -1,10 +1,9 @@
-
 import './ReloadPrompt.css'
 
 // @ts-ignore
-import { useRegisterSW } from 'virtual:pwa-register/react'
+import {useRegisterSW} from 'virtual:pwa-register/react'
 // @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
+import {pwaInfo} from 'virtual:pwa-info'
 
 console.log(pwaInfo)
 
@@ -22,7 +21,7 @@ function ReloadPrompt() {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
-    onRegisteredSW(swUrl : any, r: any) {
+    onRegisteredSW(swUrl: any, r: any) {
       console.log(`Service Worker at: ${swUrl}`)
       // @ts-expect-error just ignore
       if (reloadSW === 'true') {
@@ -30,8 +29,7 @@ function ReloadPrompt() {
           console.log('Checking for sw update')
           r.update()
         }, 20000 /* 20s for testing purposes */)
-      }
-      else {
+      } else {
         // eslint-disable-next-line prefer-template
         console.log('SW Registered: ' + r)
       }
@@ -48,15 +46,16 @@ function ReloadPrompt() {
 
   return (
     <div className="ReloadPrompt-container">
-      { (offlineReady || needRefresh)
+      {(offlineReady || needRefresh)
         && (
           <div className="ReloadPrompt-toast">
             <div className="ReloadPrompt-message">
-              { offlineReady
+              {offlineReady
                 ? <span>App ready to work offline</span>
                 : <span>New content available, click on reload button to update.</span>}
             </div>
-            { needRefresh && <button className="ReloadPrompt-toast-button" onClick={() => updateServiceWorker(true)}>Reload</button> }
+            {needRefresh &&
+              <button className="ReloadPrompt-toast-button" onClick={() => updateServiceWorker(true)}>Reload</button>}
             <button className="ReloadPrompt-toast-button" onClick={() => close()}>Close</button>
           </div>
         )}
