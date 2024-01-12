@@ -1,13 +1,16 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 import {VitePWA} from "vite-plugin-pwa";
 
 const vitePWA = VitePWA({
   registerType: 'autoUpdate',
+  injectRegister: 'auto',
   devOptions: {
     enabled: true
   },
-  outDir: "build",
+  workbox: {
+    cleanupOutdatedCaches: true,
+  },
   manifest: {
     name: "ToDoList",
     short_name: "ToDo",
