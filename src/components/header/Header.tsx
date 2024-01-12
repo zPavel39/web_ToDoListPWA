@@ -1,6 +1,6 @@
 import React from "react";
-import "./Header.scss";
 import Dropdown from "../dropdown/dropdown";
+import "./Header.scss";
 
 const Header = () => {
   return (

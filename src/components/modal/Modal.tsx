@@ -1,7 +1,7 @@
 import React from "react";
-import "./Modal.scss";
 import FormTask from "../form-task/FormTask";
 import { observer } from "mobx-react-lite";
+import "./Modal.scss";
 
 interface propsModal {
   setActiveModal: (activeModal: boolean) => void

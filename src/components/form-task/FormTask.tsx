@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import tasksStore from "../../store/task-store/tasks-store";
-import "./FormTask.scss";
 import { observer } from "mobx-react-lite";
+import "./FormTask.scss";
 
 const FormTask = observer(({ ...props }: any) => {
 

@@ -103,7 +103,7 @@
         }
     }
 
-    @media (max-width:817px) {
+    @media screen and (max-width:817px) {
         .tasks {
             &__list {
                 padding: 12px 10px;
@@ -132,14 +132,13 @@
         }
     }
 
-    @media (max-width:495px) {
+    @media screen and (max-width:495px) {
         .tasks {
             &__list {
                 padding: 10px 8px;
             }
 
             &__rightBlock {
-                flex-direction: row;
                 flex-wrap: wrap;
                 flex-direction: column;
                 width: 100%;
