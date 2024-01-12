@@ -39,7 +39,7 @@ const FormTask = observer(({ ...props }: any) => {
   return (
     <div className="container">
       <form
-        className="form"
+        className={props.showForm ? "form" : "formNoActive"}
         onSubmit={
           props.activeModal ? callbacks.updateTask : callbacks.createTask
         }

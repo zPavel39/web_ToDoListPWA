@@ -3,10 +3,15 @@ import react from '@vitejs/plugin-react'
 import {VitePWA} from "vite-plugin-pwa";
 
 const vitePWA = VitePWA({
-  registerType: 'autoUpdate',
+  registerType: 'prompt',
   injectRegister: 'auto',
   devOptions: {
     enabled: true
+  },
+  workbox: {
+    sourcemap: true,
+    globDirectory: 'build/',
+    globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
   },
   manifest: {
     name: "ToDoList",

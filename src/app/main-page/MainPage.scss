@@ -1,3 +1,9 @@
 .Main {
     overflow:hidden;
+    &__actionForm {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 10px;
+        margin-bottom: 10px;
+    }
 }
