@@ -7,10 +7,10 @@ const Header = () => {
     <header className="header">
       <div className="header__left">
         <h1 className="header__title">ToDoList</h1>
-        <Dropdown />
+        <Dropdown/>
       </div>
       <a href="https://github.com/zPavel39/web-todo-test">
-        <img className="header__image" src="/assets/images/logo_gh.png" alt="GH" />
+        <img className="header__image" src="/assets/images/logo_gh.png" alt="GH"/>
       </a>
     </header>
   );

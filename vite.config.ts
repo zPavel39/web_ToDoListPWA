@@ -8,9 +8,6 @@ const vitePWA = VitePWA({
   devOptions: {
     enabled: true
   },
-  workbox: {
-    cleanupOutdatedCaches: true,
-  },
   manifest: {
     name: "ToDoList",
     short_name: "ToDo",

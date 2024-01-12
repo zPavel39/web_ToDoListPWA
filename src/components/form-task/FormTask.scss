@@ -1,133 +1,136 @@
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .form {
-    margin: 14px;
-    width: 100%;
-    max-width: 980px;
-    padding: 24px 18px;
-    background-color: #0d1117;
-    border: 1px solid hwb(212 19% 76%);
-    border-radius: 4px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+  margin: 14px;
+  width: 100%;
+  max-width: 980px;
+  padding: 24px 18px;
+  background-color: #0d1117;
+  border: 1px solid hwb(212 19% 76%);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-        max-width: 600px;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    gap: 4px;
+
+    &_inputTitle {
+      padding: 2px;
+      height: 24px;
+      width: 100%;
+      margin-bottom: 12px;
+      font-weight: 400;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 4px;
+    }
+
+    &_inputTitleValid {
+      padding: 2px;
+      height: 24px;
+      width: 100%;
+      margin-bottom: 12px;
+      font-weight: 400;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 4px;
+      border: 1px solid red
+    }
+
+    &_inputDescription {
+      padding: 2px;
+      height: 92px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      resize: none;
+      border-radius: 4px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    max-width: 309px;
+    gap: 4px;
+    margin-top: 4px;
+
+    &_inputDate {
+      padding: 0 4px;
+      max-width: 147px;
+      height: 24px;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    &_btnSubmit {
+      padding: 6px 4px;
+      max-width: 147px;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+        background-color: #238636;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 858px) {
+    .form {
+      width: 100%;
+
+      &__left {
         width: 100%;
-        gap: 4px;
 
         &_inputTitle {
-            padding: 2px;
-            height: 24px;
-            width: 100%;
-            margin-bottom: 12px;
-            font-weight: 400;
-            font-size: 18px;
-            font-weight: 400;
-            font-family: "Montserrat", sans-serif;
-            border-radius: 4px;
-        }
-        &_inputTitleValid {
-            padding: 2px;
-            height: 24px;
-            width: 100%;
-            margin-bottom: 12px;
-            font-weight: 400;
-            font-size: 18px;
-            font-weight: 400;
-            font-family: "Montserrat", sans-serif;
-            border-radius: 4px;
-            border: 1px solid red
+          max-width: none;
+          width: 100%;
         }
 
         &_inputDescription {
-            padding: 2px;
-            height: 92px;
-            width: 100%;
-            font-size: 18px;
-            font-weight: 400;
-            font-family: "Montserrat", sans-serif;
-            resize: none;
-            border-radius: 4px;
+          max-width: none;
+          width: 100%;
         }
-    }
+      }
 
-    &__right {
+      &__right {
         display: flex;
-        flex-direction: column;
-        max-width: 309px;
-        gap: 4px;
-        margin-top: 4px;
-        
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        max-width: none;
+        flex-wrap: wrap;
+        gap: 8px;
+
         &_inputDate {
-            padding: 0 4px;
-            max-width: 147px;
-            height: 24px;
-            font-size: 18px;
-            font-family: "Montserrat", sans-serif;
-            margin-bottom: 12px;
-            border-radius: 4px;
-            cursor: pointer;
+          margin-bottom: 0;
         }
-        &_btnSubmit {
-            padding: 6px 4px;
-            max-width: 147px;
-            font-size: 18px;
-            font-family: "Montserrat", sans-serif;
-            border-radius: 4px;
-            cursor: pointer;
-
-            &:hover {
-                color: white;
-                background-color: #238636;
-            }
-        }
+      }
     }
-    &__label {
-        display: flex;
-        gap: 3px;
-        flex-direction: column;
-    }
-
-    @media (max-width: 858px) {
-        .form {
-            width: 100%;
-
-            &__left {
-                width: 100%;
-
-                &_inputTitle {
-                    max-width: none;
-                    width: 100%;
-                }
-
-                &_inputDescription {
-                    max-width: none;
-                    width: 100%;
-                }
-            }
-
-            &__right {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                width: 100%;
-                max-width: none;
-                flex-wrap: wrap;
-                gap: 8px;
-
-                &_inputDate {
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
+  }
 }
