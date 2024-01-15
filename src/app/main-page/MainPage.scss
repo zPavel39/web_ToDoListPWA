@@ -1,9 +1,23 @@
-.Main {
-    overflow:hidden;
-    &__actionForm {
-        display: flex;
-        justify-content: flex-end;
-        padding: 0 10px;
-        margin-bottom: 10px;
-    }
+.main {
+  overflow: hidden;
+
+  &__actionForm {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  &__formTask {
+    position: relative;
+    opacity: 1;
+    height: auto;
+  }
+
+  /*&__formTaskNoShow {
+    position: relative;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.6s ease-in, height 0.6s ease-in-out;
+  }*/
 }

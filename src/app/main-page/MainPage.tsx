@@ -15,14 +15,16 @@ const MainPage = observer(() => {
   const [showForm, setShowForm] = useState(false)
 
   return (
-    <div className='Main'>
+    <div className='main'>
       <Header/>
-      <div className='Main__actionForm'>
+      <div className='main__actionForm'>
         <BtnShowForm img={true} show={showForm} textBtnNoShow={translate('Add task')}
                      textBtnShow={translate('Hide form')} urlImg={'/assets/images/add.png'} altImg={'Add'}
                      setShow={setShowForm}/>
       </div>
-          <FormTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate} showForm={showForm}/>
+      <div className='main__formTask'>
+          <FormTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate} setShowForm={setShowForm} showForm={showForm}/>
+      </div>
       <ListTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}/>
     </div>
   )

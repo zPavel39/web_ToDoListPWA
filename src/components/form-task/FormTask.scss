@@ -2,11 +2,23 @@
   display: flex;
   justify-content: center;
 }
-
-.formNoActive {
-  display: none;
+.container__formTask {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
 
+.container__formTaskNoShow {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  opacity: 0;
+  height: 0;
+  transition: all 0.5s ease-in;
+}
 .form {
   margin: 0 14px 14px 14px;
   width: 100%;
@@ -26,8 +38,10 @@
     display: flex;
     flex-direction: column;
     max-width: 600px;
+    align-items: flex-start;
     width: 100%;
     gap: 4px;
+    transition: all 0.8s;
 
     &_inputTitle {
       padding: 2px;
@@ -53,6 +67,8 @@
     }
 
     &_inputDescription {
+      position: relative;
+      opacity: 1;
       padding: 2px;
       height: 92px;
       width: 100%;
@@ -61,6 +77,20 @@
       font-family: "Montserrat", sans-serif;
       resize: none;
       border-radius: 4px;
+      transition: opacity 0.6s ease-in-out, height 0.6s ease-in-out;
+    }
+    &_inputDescriptionNoShow {
+      opacity: 0;
+      height: 0;
+      position: relative;
+      padding: 2px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      resize: none;
+      border-radius: 4px;
+      transition: opacity 0.6s ease-in, height 0.6s ease-in-out;
     }
   }
 

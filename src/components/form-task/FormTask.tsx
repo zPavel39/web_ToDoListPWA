@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, {useCallback, useState} from "react";
 import tasksStore from "../../store/task-store/tasks-store";
 import { observer } from "mobx-react-lite";
+import {BtnShowForm} from "../btn-show-form/BtnShowForm.tsx";
 import "./FormTask.scss";
 
 const FormTask = observer(({ ...props }: any) => {
 
-  const { createTask, updateTask, validation } = tasksStore;
+  const { createTask, validation } = tasksStore;
 
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
+  const [showDescription, setShowDescription] = useState(false)
   const [dateValue, setDateValue] = useState(
     new Date().toISOString().slice(0, 10)
   );
 
   const callbacks = {
-    createTask: (e: React.FormEvent<HTMLFormElement>) => {
+    createTask: useCallback((e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       createTask({
         title: titleValue,
@@ -23,8 +25,10 @@ const FormTask = observer(({ ...props }: any) => {
       });
       setTitleValue("");
       setDescriptionValue("");
-    },
-    updateTask: (e: React.FormEvent<HTMLFormElement>) => {
+      console.log('123')
+      /*props.setShowForm(false)*/
+    }, [titleValue]),
+    /*updateTask: (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       updateTask({
         title: titleValue,
@@ -34,14 +38,14 @@ const FormTask = observer(({ ...props }: any) => {
       setTitleValue("");
       setDescriptionValue("");
       props.setActiveModal(false)
-    },
+    },*/
   };
   return (
-    <div className="container">
+    <div className={props.showForm ? 'container__formTask' : 'container__formTaskNoShow'}>
       <form
-        className={props.showForm ? "form" : "formNoActive"}
-        onSubmit={
-          props.activeModal ? callbacks.updateTask : callbacks.createTask
+        className="form"
+        onSubmit={callbacks.createTask
+          /*props.activeModal ? callbacks.updateTask : */
         }
       >
         <div className="form__left">
@@ -53,9 +57,11 @@ const FormTask = observer(({ ...props }: any) => {
             onChange={(e) => setTitleValue(e.target.value)}
             placeholder={props.translate('TitlePH')}
           />
-          <label>{props.translate('Description')}:</label>
+          <BtnShowForm img={true} show={showDescription} textBtnNoShow={props.translate('Description')}
+                       textBtnShow={props.translate('Description')} urlImg={'/assets/images/add.png'} altImg={'Add'}
+                       setShow={setShowDescription} />
           <textarea
-            className="form__left_inputDescription"
+            className={showDescription ? "form__left_inputDescription" : "form__left_inputDescriptionNoShow"}
             rows={4}
             maxLength={200}
             placeholder={props.translate('DescriptionPH')}
