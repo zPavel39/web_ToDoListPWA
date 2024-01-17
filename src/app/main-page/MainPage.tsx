@@ -17,15 +17,16 @@ const MainPage = observer(() => {
   return (
     <div className='main'>
       <Header/>
-      <div className='main__actionForm'>
-        <BtnShowForm img={true} show={showForm} textBtnNoShow={translate('Add task')}
-                     textBtnShow={translate('Hide form')} urlImg={'/assets/images/add.png'} altImg={'Add'}
-                     setShow={setShowForm}/>
-      </div>
-      <div className='main__formTask'>
-          <FormTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate} setShowForm={setShowForm} showForm={showForm}/>
-      </div>
-      <ListTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}/>
+        <div className='main__actionForm'>
+          <BtnShowForm img={true} show={showForm} textBtnNoShow={translate('Add task')}
+                       textBtnShow={translate('Hide form')} urlImg={'/assets/images/add.png'} altImg={'Add'}
+                       setShow={setShowForm}/>
+        </div>
+        <div className='main__formTask'>
+          <FormTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}
+                    setShowForm={setShowForm} showForm={showForm}/>
+        </div>
+        <ListTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}/>
     </div>
   )
 })

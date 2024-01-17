@@ -30,7 +30,7 @@ const ListTask = observer(({...props}: props) => {
   };
 
   return (
-    <div className="container">
+    <div className="tasks-container">
 
       <ul className="tasks">
         <div className="tasks__header">

@@ -5,9 +5,6 @@ import {VitePWA} from "vite-plugin-pwa";
 const vitePWA = VitePWA({
   registerType: 'prompt',
   injectRegister: 'auto',
-  devOptions: {
-    enabled: true
-  },
   workbox: {
     sourcemap: true,
     globDirectory: 'build/',

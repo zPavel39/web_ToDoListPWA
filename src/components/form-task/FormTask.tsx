@@ -41,9 +41,8 @@ const FormTask = observer(({ ...props }: any) => {
     },*/
   };
   return (
-    <div className={props.showForm ? 'container__formTask' : 'container__formTaskNoShow'}>
-      <form
-        className="form"
+    <form
+        className={`${props.showForm ? `form ${showDescription ? 'forMaxHeight' : ''}` : 'formNoShow'}`}
         onSubmit={callbacks.createTask
           /*props.activeModal ? callbacks.updateTask : */
         }
@@ -84,7 +83,6 @@ const FormTask = observer(({ ...props }: any) => {
           </button>
         </div>
       </form>
-    </div>
   );
 });
 
