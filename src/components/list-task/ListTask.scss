@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
 }
+
 .tasks {
   margin: 0 14px 12px 14px;
   width: 100%;
@@ -80,7 +81,8 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-right: 6px;
-gap: 10px;
+    gap: 10px;
+
     &_date {
       max-width: 147px;
       margin-right: 40px;
@@ -101,6 +103,7 @@ gap: 10px;
   &__blockBtn {
     display: flex;
     gap: 10px;
+
     &_btn {
       font-family: 'Montserrat';
       padding: 8px 12px;
