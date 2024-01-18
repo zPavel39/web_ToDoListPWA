@@ -1,13 +1,15 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
+import type { ManifestOptions, VitePWAOptions } from 'vite-plugin-pwa'
 import {VitePWA} from "vite-plugin-pwa";
 
-const vitePWA = VitePWA({
+
+const vitePWA: Partial<VitePWAOptions> = {
+  mode: 'development',
   registerType: 'prompt',
-  injectRegister: 'auto',
   workbox: {
     sourcemap: true,
-    globDirectory: 'build/',
+    globDirectory: '/',
     globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
   },
   manifest: {
@@ -27,8 +29,37 @@ const vitePWA = VitePWA({
         type: 'image/png',
       },],
   },
-})
+  devOptions: {
+    enabled: process.env.SW_DEV === 'true',
+    /* when using generateSW the PWA plugin will switch to classic */
+    type: 'module',
+    navigateFallback: 'index.html',
+  },
+}
+const replaceOptions = { __DATE__: new Date().toISOString() }
+const claims = process.env.CLAIMS === 'true'
+const reload = process.env.RELOAD_SW === 'true'
+const selfDestroying = process.env.SW_DESTROY === 'true'
+
+if (process.env.SW === 'true') {
+  vitePWA.srcDir = 'src'
+  vitePWA.filename = claims ? 'claims-sw.ts' : 'prompt-sw.ts'
+  vitePWA.strategies = 'injectManifest'
+  ;(vitePWA.manifest as Partial<ManifestOptions>).name = 'PWA Inject Manifest'
+  ;(vitePWA.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
+}
+
+if (claims)
+  vitePWA.registerType = 'autoUpdate'
+
+if (reload) {
+  // @ts-expect-error just ignore
+  replaceOptions.__RELOAD_SW__ = 'true'
+}
+
+if (selfDestroying)
+  vitePWA.selfDestroying = selfDestroying
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), vitePWA],
+  plugins: [react(), VitePWA(vitePWA)],
 })
