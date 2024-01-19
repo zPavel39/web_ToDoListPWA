@@ -5,8 +5,10 @@ import {VitePWA} from "vite-plugin-pwa";
 
 
 const vitePWA: Partial<VitePWAOptions> = {
-  mode: 'development',
   registerType: 'prompt',
+  devOptions: {
+    enabled: true
+  },
   workbox: {
     sourcemap: true,
     globDirectory: '/',
@@ -28,12 +30,6 @@ const vitePWA: Partial<VitePWAOptions> = {
         sizes: '512x512',
         type: 'image/png',
       },],
-  },
-  devOptions: {
-    enabled: process.env.SW_DEV === 'true',
-    /* when using generateSW the PWA plugin will switch to classic */
-    type: 'module',
-    navigateFallback: 'index.html',
   },
 }
 const replaceOptions = { __DATE__: new Date().toISOString() }
