@@ -1,4 +1,4 @@
-import './ReloadPrompt.css'
+import './ReloadPrompt.scss'
 
 // @ts-ignore
 import {useRegisterSW} from 'virtual:pwa-register/react'
