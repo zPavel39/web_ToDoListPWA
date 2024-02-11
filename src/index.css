@@ -56,3 +56,4 @@ p, h1 {
 button {
   outline: none;
 }
+::-webkit-scrollbar { width: 0;}

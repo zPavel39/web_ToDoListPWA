@@ -1,6 +1,6 @@
 import React from "react";
 import "./ListTask.scss";
-import tasksStore from "../../store/task-store/tasks-store";
+import tasksStore, {Task} from "../../store/task-store/tasks-store";
 import {observer} from "mobx-react-lite";
 
 interface props {
@@ -26,6 +26,10 @@ const ListTask = observer(({...props}: props) => {
     sortTasksList
   } = tasksStore;
 
+  const reversedMappedArray: Task[] = tasks.slice().reverse().map((element) => {
+    // Здесь вы можете выполнить любую операцию с элементом массива
+    return element;
+  });
   const callbacks = {
     delTask: (id: number) => {
       delTask(id);
@@ -64,7 +68,7 @@ const ListTask = observer(({...props}: props) => {
                       onClick={() => sortTasksList('Completed')}>{props.translate('Active')}</button>
           </div>
         }
-        {tasks.map((task) => {
+        {reversedMappedArray.map((task) => {
           const {id, title, description, date, completed} = task;
           return (
             <li

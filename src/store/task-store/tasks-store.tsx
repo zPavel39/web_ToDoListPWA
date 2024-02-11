@@ -6,7 +6,7 @@ interface TaskAction {
   date: string;
 }
 
-interface Task {
+export interface Task {
   id: number,
   title: string,
   description: string,
