@@ -11,7 +11,7 @@ const vitePWA: Partial<VitePWAOptions> = {
   },
   workbox: {
     sourcemap: true,
-    globDirectory: '/build',
+    globDirectory: '/',
     globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
   },
   manifest: {
