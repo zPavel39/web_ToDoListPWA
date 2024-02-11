@@ -76,13 +76,9 @@ class TaskStore {
   saveTask = () => {
     let taskUpdate = this.tasks.find((item) => item.id === this.idSearch)
     if (taskUpdate) {
-      if (taskUpdate.title.length === 0 || taskUpdate.description.length === 0) {
-        return this.tasks;
-      } else {
         taskUpdate.title = this.updateTitleInput
         taskUpdate.description = this.updateDescriptionInput
         taskUpdate.date = this.updateDateInput
-      }
     }
     this.idSearch = 0
     this.updateTitleInput = ''
