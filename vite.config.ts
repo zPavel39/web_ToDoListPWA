@@ -11,7 +11,7 @@ const vitePWA: Partial<VitePWAOptions> = {
   },
   workbox: {
     sourcemap: true,
-    globDirectory: '/build',
+    globDirectory: '/',
     globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
   },
   manifest: {
@@ -21,12 +21,12 @@ const vitePWA: Partial<VitePWAOptions> = {
     theme_color: "#ffffff",
     icons: [
       {
-        src: 'assets/images/android-chrome-192x192.png',
+        src: '/assets/images/android-chrome-192x192.png',
         sizes: "192x192",
         type: 'image/png',
       },
       {
-        src: 'assets/images/android-chrome-512x512.png',
+        src: '/assets/images/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
       },],
