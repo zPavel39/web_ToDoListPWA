@@ -14,6 +14,7 @@
         "Add task": "Add task",
         "Hide form": "Hide form",
         "Save": "Save",
-        "Add description": "Add description"
+        "Add description": "Add description",
+        "Cannot be empty": "Cannot be empty"
     }
 }

@@ -14,6 +14,7 @@
         "Add task": "Добавить задачу",
         "Hide form": "Cкрыть форму",
         "Save": "Сохранить",
-        "Add description": "Добавить описание"
+        "Add description": "Добавить описание",
+        "Cannot be empty": "Не может быть пустым"
     }
 }

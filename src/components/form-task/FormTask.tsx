@@ -31,7 +31,7 @@ const FormTask = observer(({...props}: any) => {
       className={`${props.showForm ? `form ${showDescription ? 'forMaxHeight' : ''}` : 'formNoShow'}`}
     >
       <div className="form__left">
-        <label>{props.translate('Title')}: {titleValue.length === 0 && !validation && 'Не может быть пустым'}</label>
+        <label>{props.translate('Title')}: {titleValue.length === 0 && !validation && props.translate('Cannot be empty')}</label>
         <input
           className={titleValue.length !== 0 || validation ? "form__left_inputTitle" : "form__left_inputTitleValid"}
           type="text"
@@ -53,7 +53,7 @@ const FormTask = observer(({...props}: any) => {
       </div>
       <div className="form__right">
         <div className="form__label">
-          <label>Дата:</label>
+          <label>{props.translate('Date')}:</label>
           <input
             className="form__right_inputDate"
             type="date"
