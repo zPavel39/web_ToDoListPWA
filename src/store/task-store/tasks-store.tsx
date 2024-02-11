@@ -66,21 +66,15 @@ class TaskStore {
   updateTask = () => {
     // поиск задачи из id.Search
     let taskUpdate = this.tasks.find((item) => item.id === this.idSearch)
-    console.log('updateTask', taskUpdate)
     if (taskUpdate) {
-      if (taskUpdate.title.length === 0 || taskUpdate.description.length === 0) {
-        return this.tasks;
-      } else {
-        this.updateTitleInput = taskUpdate.title
-        this.updateDescriptionInput = taskUpdate.description
-        this.updateDateInput = taskUpdate.date
-      }
+        this.updateTitleInput = taskUpdate.title || ''
+        this.updateDescriptionInput = taskUpdate.description || ''
+        this.updateDateInput = taskUpdate.date || ''
     }
     return this.tasks;
   };
   saveTask = () => {
     let taskUpdate = this.tasks.find((item) => item.id === this.idSearch)
-    console.log('updateTask', taskUpdate)
     if (taskUpdate) {
       if (taskUpdate.title.length === 0 || taskUpdate.description.length === 0) {
         return this.tasks;

@@ -37,18 +37,15 @@ const ListTask = observer(({...props}: props) => {
     updateTaskOpenForm: (id: number) => {
       updateTaskOpenForm(id);
       props.setUpdateForm(true);
-      console.log('id', id)
     },
     saveTask: () => {
       saveTask()
       props.setUpdateForm(!props.updateForm);
-      console.log('idSearch', idSearch)
     },
     sortTasksList: (sort: string) => {
       sortTasksList(sort)
     }
   };
-  console.log('task', tasks)
 
   return (
     <div className="tasks-container">
