@@ -1,21 +1,23 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-    margin-bottom: 15px;
-    &__left {
-        display: flex;
-        align-items: flex-end;
-        gap: 5px;
-    }
-    &__title {
-        font-size: 36px;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  margin-bottom: 15px;
 
-    &__image {
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-    }
+  &__left {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  &__title {
+    font-size: 36px;
+  }
+
+  &__image {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+  }
 }
