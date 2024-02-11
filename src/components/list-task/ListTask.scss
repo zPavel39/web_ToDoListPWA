@@ -1,8 +1,7 @@
 .tasks-container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
 }
 
 .tasks-messageBlock {
@@ -26,6 +25,7 @@
   justify-content: space-between;
   gap: 10px;
   z-index: 2;
+  width: 100%;
 
   &__header {
     display: flex;
