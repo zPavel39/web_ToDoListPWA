@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 
 interface TaskAction {
   title: string;
@@ -18,16 +18,21 @@ class TaskStore {
   ];
   idSearch: number = 0;
   validation = true;
-  sort = ''
+  updateTitleInput = '';
+  updateDescriptionInput = '';
+  updateDateInput = '';
+  sort = '';
+
   constructor() {
     makeAutoObservable(this);
   }
+
   // инициализация таски, нельзя создать при пустом title
   createTask = (task: TaskAction) => {
     if (task.title.length === 0) {
-      this.validation = false 
+      this.validation = false
     } else {
-      this.tasks.push({ ...task, id: +new Date(), completed: false });
+      this.tasks.push({...task, id: +new Date(), completed: false});
       this.validation = true
     }
   };
@@ -43,26 +48,55 @@ class TaskStore {
     }
     return this.tasks;
   };
- // Запоминаем id таски при попытки и вызове модального окна изменить задачу 
-  updateTaskOpenModel = (id: number) => {
-    return this.idSearch = id
+  // Запоминаем id таски при попытки изменить задачу
+  updateTaskOpenForm = (id: number) => {
+    this.idSearch = id
+    this.updateTask()
   }
-  // Обновление задачи, при пустом 
-  updateTask = (task: TaskAction) => {
+  // Обновление инпутов
+  updateTask = () => {
     // поиск задачи из id.Search
     let taskUpdate = this.tasks.find((item) => item.id === this.idSearch)
+    console.log('updateTask', taskUpdate)
     if (taskUpdate) {
-      if (task.title.length === 0 || task.description.length === 0) {
+      if (taskUpdate.title.length === 0 || taskUpdate.description.length === 0) {
         return this.tasks;
       } else {
-        taskUpdate.title = task.title
-        taskUpdate.description = task.description
-        taskUpdate.date = task.date
+        this.updateTitleInput = taskUpdate.title
+        this.updateDescriptionInput = taskUpdate.description
+        this.updateDateInput = taskUpdate.date
       }
     }
     return this.tasks;
   };
-
+  saveTask = () => {
+    let taskUpdate = this.tasks.find((item) => item.id === this.idSearch)
+    console.log('updateTask', taskUpdate)
+    if (taskUpdate) {
+      if (taskUpdate.title.length === 0 || taskUpdate.description.length === 0) {
+        return this.tasks;
+      } else {
+        taskUpdate.title = this.updateTitleInput
+        taskUpdate.description = this.updateDescriptionInput
+        taskUpdate.date = this.updateDateInput
+      }
+    }
+    this.idSearch = 0
+    this.updateTitleInput = ''
+    this.updateDescriptionInput = ''
+    this.updateDateInput = ''
+    return this.tasks;
+  }
+  // Управление инпутами
+  setUpdateTitleInput = (title: string) => {
+    this.updateTitleInput = title
+  }
+  setUpdateDescriptionInput = (description: string) => {
+    this.updateDescriptionInput = description
+  }
+  setUpdateDateInput = (date: string) => {
+    this.updateDateInput = date
+  }
   // Сортировка задач по значению
   sortTasksList = (sort: string) => {
     if (sort === this.sort) {

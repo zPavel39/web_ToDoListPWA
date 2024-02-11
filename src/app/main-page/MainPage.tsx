@@ -11,7 +11,7 @@ import './MainPage.scss'
 const MainPage = observer(() => {
 
   const {translate} = langStore
-  const [activeModal, setActiveModal] = useState(false)
+  const [updateForm, setUpdateForm] = useState(false)
   const [showForm, setShowForm] = useState(false)
 
   return (
@@ -23,10 +23,10 @@ const MainPage = observer(() => {
                      setShow={setShowForm}/>
       </div>
       <div className='main__formTask'>
-        <FormTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}
+        <FormTask setUpdateForm={setUpdateForm} updateForm={updateForm} translate={translate}
                   setShowForm={setShowForm} showForm={showForm}/>
       </div>
-      <ListTask setActiveModal={setActiveModal} activeModal={activeModal} translate={translate}/>
+      <ListTask setUpdateForm={setUpdateForm} updateForm={updateForm} translate={translate}/>
     </div>
   )
 })

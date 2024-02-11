@@ -4,14 +4,27 @@ import tasksStore from "../../store/task-store/tasks-store";
 import {observer} from "mobx-react-lite";
 
 interface props {
-  setActiveModal: (activeModal: boolean) => void;
-  activeModal: boolean;
+  setUpdateForm: (activeModal: boolean) => void;
+  updateForm: boolean;
   translate: (key: string) => string;
 }
 
 const ListTask = observer(({...props}: props) => {
-  const {tasks, delTask, updateCompleted, updateTaskOpenModel, sortTasksList} = tasksStore;
-
+  const {
+    tasks,
+    updateTitleInput,
+    updateDescriptionInput,
+    updateDateInput,
+    idSearch,
+    setUpdateTitleInput,
+    setUpdateDescriptionInput,
+    setUpdateDateInput,
+    delTask,
+    saveTask,
+    updateCompleted,
+    updateTaskOpenForm,
+    sortTasksList
+  } = tasksStore;
 
   const callbacks = {
     delTask: (id: number) => {
@@ -19,16 +32,24 @@ const ListTask = observer(({...props}: props) => {
     },
     updateCompleted: (id: number) => {
       updateCompleted(id);
+
     },
-    updateTaskOpenModel: (id: number) => {
-      updateTaskOpenModel(id);
-      props.setActiveModal(!props.activeModal);
+    updateTaskOpenForm: (id: number) => {
+      updateTaskOpenForm(id);
+      props.setUpdateForm(true);
+      console.log('id', id)
+    },
+    saveTask: () => {
+      saveTask()
+      props.setUpdateForm(!props.updateForm);
+      console.log('idSearch', idSearch)
     },
     sortTasksList: (sort: string) => {
       sortTasksList(sort)
     }
   };
   console.log('task', tasks)
+
   return (
     <div className="tasks-container">
 
@@ -49,7 +70,7 @@ const ListTask = observer(({...props}: props) => {
               className={completed ? "tasks__list completed" : " tasks__list"}
               key={id}
             >
-              {!props.activeModal ?
+              {!props.updateForm || (idSearch !== id) ?
                 <>
                   <div className="tasks__leftBlock">
                     <h2 className="tasks__leftBlock_title">{title}</h2>
@@ -62,13 +83,13 @@ const ListTask = observer(({...props}: props) => {
                     <div className="tasks__blockBtn">
                       <button
                         className="tasks__blockBtn_btn"
-                        onClick={() => callbacks.updateTaskOpenModel(id)}
+                        onClick={() => callbacks.updateTaskOpenForm(id)}
                       >
                         {props.translate('Update')}
                       </button>
                       <button
                         className="tasks__blockBtn_btn"
-                        onClick={() => updateCompleted(id)}
+                        onClick={() => callbacks.updateCompleted(id)}
                       >
                         {props.translate('Completed')}
                       </button>
@@ -84,16 +105,22 @@ const ListTask = observer(({...props}: props) => {
                 :
                 <>
                   <div className="tasks__leftBlock">
-                    <input className="tasks__leftBlock_input" value={title}></input>
+                    <input className="tasks__leftBlock_input" value={updateTitleInput}
+                           onChange={(e) => setUpdateTitleInput(e.target.value)}></input>
                     <textarea className="tasks__leftBlock_inputDescription" maxLength={200}
-                              value={description}></textarea>
+                              value={updateDescriptionInput}
+                              onChange={(e) => setUpdateDescriptionInput(e.target.value)}>
+
+                    </textarea>
                   </div>
                   <div className="tasks__rightBlock">
-                    <input type={"date"} className="tasks__rightBlock_inputDate" value={date}/>
+                    <input type={"date"} className="tasks__rightBlock_inputDate" value={updateDateInput}
+                           onChange={(e) => setUpdateDateInput(e.target.value)}
+                    />
                     <div className="tasks__blockBtn">
                       <button
                         className="tasks__blockBtn_btn"
-                        onClick={() => callbacks.updateTaskOpenModel(id)}
+                        onClick={() => callbacks.saveTask()}
                       >
                         {props.translate('Save')}
                       </button>
@@ -112,7 +139,8 @@ const ListTask = observer(({...props}: props) => {
         })}
       </ul>
     </div>
-  );
+  )
+    ;
 });
 
 export default React.memo(ListTask);
