@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import langStore from "../../store/interpreter/interpreter.ts";
 import "./dropdown.scss";
-import { observer } from "mobx-react-lite";
+import {observer} from "mobx-react-lite";
 
 const Dropdown = observer(() => {
 
-  const { languages, switchLang } = langStore;
+  const {languages, switchLang} = langStore;
   const languageKeys = Object.keys(languages) as string[];
   const [selected, setSelected] = useState("ru");
   const [isActive, setIsActive] = useState(false);
-  
+
   const callbacks = {
     switchLang: (language: string) => {
-        setSelected(language);
-        setIsActive(false);
-        switchLang(language)
+      setSelected(language);
+      setIsActive(false);
+      switchLang(language)
     }
   }
   return (

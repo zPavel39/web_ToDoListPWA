@@ -28,6 +28,7 @@ class TaskStore {
       this.validation = false 
     } else {
       this.tasks.push({ ...task, id: +new Date(), completed: false });
+      this.validation = true
     }
   };
 
