@@ -1,11 +1,24 @@
 .tasks-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tasks-messageBlock {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  &__message {
+    color: #ffffff4f;
+    font-size: 18px;
+  }
 }
 
 .tasks {
   margin: 0 14px 12px 14px;
-  width: 100%;
   max-width: 980px;
   display: flex;
   flex-direction: column;

@@ -52,7 +52,11 @@ const ListTask = observer(({...props}: props) => {
 
   return (
     <div className="tasks-container">
-
+      {tasks.length === 0 &&
+        <div className="tasks-messageBlock">
+            <h2 className="tasks-messageBlock__message">{props.translate('The task list is empty')}</h2>
+        </div>
+      }
       <ul className="tasks">
         {tasks.length > 2 &&
           <div className="tasks__header">

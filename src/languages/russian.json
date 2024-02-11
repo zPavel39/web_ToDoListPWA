@@ -15,6 +15,7 @@
         "Hide form": "Cкрыть форму",
         "Save": "Сохранить",
         "Add description": "Добавить описание",
-        "Cannot be empty": "Не может быть пустым"
+        "Cannot be empty": "Не может быть пустым",
+        "The task list is empty": "Список задач пуст"
     }
 }

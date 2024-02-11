@@ -6,22 +6,23 @@ interface TaskAction {
   date: string;
 }
 
+interface Task {
+  id: number,
+  title: string,
+  description: string,
+  date: string,
+  completed: boolean,
+}
+
 class TaskStore {
-  tasks = [
-    {
-      id: 1,
-      title: "Пойти в поход",
-      description: "Купить мангал и продукты",
-      date: "2023-05-10",
-      completed: false,
-    },
-  ];
+  tasks: Task[] = [];
   idSearch: number = 0;
-  validation = true;
-  updateTitleInput = '';
-  updateDescriptionInput = '';
-  updateDateInput = '';
-  sort = '';
+  validation: boolean = true;
+  updateTitleInput: string = '';
+  updateDescriptionInput: string = '';
+  updateDateInput: string = '';
+  sort: string = '';
+  message: string = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -34,11 +35,19 @@ class TaskStore {
     } else {
       this.tasks.push({...task, id: +new Date(), completed: false});
       this.validation = true
+      localStorage.setItem('tasksTODO', JSON.stringify(this.tasks));
     }
   };
-
+  getTasks = () => {
+    const tasksJSON = localStorage.getItem('tasksTODO');
+    if (tasksJSON) {
+      this.tasks = JSON.parse(tasksJSON);
+    } else {
+    }
+  }
   delTask = (id: number) => {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    localStorage.setItem('tasksTODO', JSON.stringify(this.tasks));
   };
 
   updateCompleted = (id: number) => {
@@ -85,6 +94,7 @@ class TaskStore {
     this.updateTitleInput = ''
     this.updateDescriptionInput = ''
     this.updateDateInput = ''
+    localStorage.setItem('tasksTODO', JSON.stringify(this.tasks));
     return this.tasks;
   }
   // Управление инпутами

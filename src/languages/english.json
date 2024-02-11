@@ -15,6 +15,7 @@
         "Hide form": "Hide form",
         "Save": "Save",
         "Add description": "Add description",
-        "Cannot be empty": "Cannot be empty"
+        "Cannot be empty": "Cannot be empty",
+        "The task list is empty": "The task list is empty"
     }
 }
