@@ -3,22 +3,22 @@
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
 }
 a {
-  color: black;
-  text-decoration: none;
+	color: black;
+	text-decoration: none;
 }
 ul,
 ol,
 li {
-  list-style: none;
+	list-style: none;
 }
 img {
-  vertical-align: top;
+	vertical-align: top;
 }
 h1,
 h2,
@@ -26,34 +26,44 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: inherit;
-  font-size: inherit;
+	font-weight: inherit;
+	font-size: inherit;
 }
 * {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 html,
 body {
-  height: 100%;
-  background: #010409;
-  line-height: 1;
-  font-size: 14px;
-  color: white;
-  font-weight: 400;
-  font-family: 'Montserrat', sans-serif;
+	height: 100%;
+	background: #010409;
+	line-height: 1;
+	font-size: 14px;
+	color: white;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
 }
-p, h1 {
-  margin: 0;
+p,
+h1 {
+	margin: 0;
 	padding: 0;
 	border: 0;
 	font: inherit;
 	vertical-align: baseline;
 }
-button {
-  outline: none;
+::-webkit-scrollbar {
+	width: 0;
 }
-::-webkit-scrollbar { width: 0;}
+button {
+	outline: none;
+	/*Дополнительный сброс стилей для мобильной версии*/
+	-webkit-tap-highlight-color: transparent; /* Устанавливаем цвет подсветки при касании */
+	-webkit-touch-callout: none; /* Отключаем меню долгого нажатия на кнопке */
+	-webkit-user-select: none; /* Запрещаем выделение текста */
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

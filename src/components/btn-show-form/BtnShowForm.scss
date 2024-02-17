@@ -1,31 +1,28 @@
 .btnShow {
-  background: inherit;
-  cursor: pointer;
-  display: flex;
-  gap: 5px;
-  align-items: center;
+	background: inherit;
+	cursor: pointer;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	-webkit-tap-highlight-color: transparent;
+	&__image {
+		height: 25px;
+		width: 25px;
+		background: inherit;
+		transition: transform 0.4s;
+	}
 
-  &__image {
-    height: 25px;
-    width: 25px;
-    background: inherit;
-    transition: transform 0.4s;
+	&__imageRotate {
+		height: 25px;
+		width: 25px;
+		background: inherit;
+		transform: rotate(45deg);
+		transition: transform 0.4s;
+	}
 
-  }
-
-  &__imageRotate {
-    height: 25px;
-    width: 25px;
-    background: inherit;
-    transform: rotate(45deg);
-    transition: transform 0.4s;
-
-  }
-
-  &__text {
-    color: white;
-    font-size: 14px;
-    transition: transform 0.4s;
-
-  }
+	&__text {
+		color: white;
+		font-size: 14px;
+		transition: transform 0.4s;
+	}
 }
